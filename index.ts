@@ -33,3 +33,5 @@ if (answer.Operator === "Addition") {
 } else {
   console.log("Please choose a valid operator");
 }
+
+console.log('THANKS FOR USING my cAlCuLaToR');
