@@ -2,41 +2,38 @@
 // Above line is called "shebang": SHE is used for hash (#) and BANG is used for an exclamation mark(!)
 
 import inquirer from "inquirer";
+import chalk from "chalk";
+import showBanner from "node-banner" ;
 
-async function main() {
-  const answer = await inquirer.prompt([
-    { message: "Enter First number", type: "number", name: "firstNumber" },
-    { message: "Enter Second number", type: "number", name: "secondNumber" },
-    {
-      message: "Select One of the operator to perform operation",
-      type: "list",
-      name: "Operator",
-      choices: [
-        "Addition",
-        "Subtraction",
-        "Multiplication",
-        "Division",
-        "Module",
-      ],
-    },
+(async ( ) =>{ 
+  await showBanner ( 'C L I Calculator ','','blue');
+  const answer=await inquirer.prompt([
+    { message: "Enter First number",
+      type: "number" ,
+      name :"firstNumber"},
+      { message: "Enter Second number",
+      type: "number" ,
+      name :"secondNumber"},
+      { message: "Select one operator to perform operation",
+      type: "list" ,
+      name :"operator",
+      choices: ["Addition", "Subtraction", "Multiplication", "Division","Module"]},
   ]);
-
   // conditional statement
-  if (answer.Operator === "Addition") {
-    console.log(`Your value is`, answer.firstNumber + answer.secondNumber);
-  } else if (answer.Operator === "Subtraction") {
-    console.log(`Your value is`, answer.firstNumber - answer.secondNumber);
-  } else if (answer.Operator === "Multiplication") {
-    console.log(`Your value is`, answer.firstNumber * answer.secondNumber);
-  } else if (answer.Operator === "Division") {
-    console.log(`Your value is`, answer.firstNumber / answer.secondNumber);
-  } else if (answer.Operator === "Module") {
-    console.log(`Your value is`, answer.firstNumber % answer.secondNumber);
-  } else {
-    console.log("Please choose a valid operator");
-  }
 
-  console.log('THANKS FOR USING my CALCULATOR');
-}
+  if (answer.operator === "Addition"){
+    console.log('Your value is' , answer.firstNumber + answer.secondNumber);
+    } else if (answer.operator === "Subtraction"){
+    console.log('Your value is', answer.firstNumber - answer.secondNumber);
+    } else if (answer.operator === "Multiplication"){
+    console.log('Your value is', answer.firstNumber * answer.secondNumber);
+    } else if (answer.operator === "Division"){
+    console.log('Your value is', answer.firstNumber / answer.secondNumber);
+    } else if (answer.operator === "Module"){
+    console.log('Your value is', answer.firstNumber % answer.secondNumber);
+    } else {
+    console.log("Invalid input");
+    }
 
-main();
+    console.log("Thanks for using my Calculator");
+  })();
