@@ -4,20 +4,24 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 import showBanner from "node-banner" ;
+import chalkAnimation from 'chalk-animation';
+
+
+
 
 (async ( ) =>{ 
   await showBanner ( 'C L I Calculator ','','blue');
   const answer=await inquirer.prompt([
-    { message: "Enter First number",
+    { message:chalk.greenBright( "Enter First number"),
       type: "number" ,
       name :"firstNumber"},
-      { message: "Enter Second number",
+      { message: chalk.magentaBright("Enter Second number"),
       type: "number" ,
       name :"secondNumber"},
-      { message: "Select one operator to perform operation",
+      { message: chalk.yellowBright("Select one operator to perform operation"),
       type: "list" ,
       name :"operator",
-      choices: ["Addition", "Subtraction", "Multiplication", "Division","Module"]},
+      choices: ["Addition"  , "Subtraction", "Multiplication", "Division","Module"]},
   ]);
   // conditional statement
 
@@ -34,6 +38,13 @@ import showBanner from "node-banner" ;
     } else {
     console.log("Invalid input");
     }
+    console.log();
+  let animation = chalkAnimation.rainbow("Thanks for using my Calculator"  )
+  setTimeout(() => {
+    animation.stop(); // Stop the animation
+    }, 2000);
 
-    console.log("Thanks for using my Calculator");
+  
+     
+     
   })();
