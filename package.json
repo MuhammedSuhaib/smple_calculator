@@ -1,6 +1,6 @@
 {
   "name": "smple_calculator",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "simple calculator with typescript, Node.js and inquirer",
   "main": "index.js",
   "type": "module",
