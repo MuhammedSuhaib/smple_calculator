@@ -1,0 +1,116 @@
+:root {
+    --primary-color: #00ffff; /* Cyan */
+    --secondary-color: #ff00ff; /* Magenta */
+    --background-color: #0d0221;
+    --display-bg: #14143c;
+    --button-bg: #2a004f;
+    --button-hover-bg: #4f0187;
+    --text-color: #f0f0f0;
+    --glow-color: rgba(0, 255, 255, 0.8);
+    --glow-color-secondary: rgba(255, 0, 255, 0.7);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Orbitron', sans-serif;
+    perspective: 1000px;
+}
+
+.calculator {
+    width: 340px;
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 20px;
+    background: rgba(13, 2, 33, 0.8);
+    box-shadow: 0 0 15px var(--glow-color), 0 0 30px var(--glow-color-secondary) inset;
+    backdrop-filter: blur(5px);
+    transform: rotateY(-5deg) rotateX(5deg);
+    transition: transform 0.5s;
+}
+
+.calculator:hover {
+    transform: rotateY(0deg) rotateX(0deg);
+    box-shadow: 0 0 25px var(--glow-color), 0 0 40px var(--glow-color-secondary) inset;
+}
+
+.display-container {
+    background-color: var(--display-bg);
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px var(--glow-color-secondary) inset;
+    text-align: right;
+}
+
+.brand {
+    font-size: 12px;
+    color: var(--secondary-color);
+    text-align: left;
+    opacity: 0.7;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.display {
+    font-size: 48px;
+    height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--primary-color);
+    text-shadow: 0 0 8px var(--glow-color);
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    background-color: var(--button-bg);
+    border: 1px solid var(--secondary-color);
+    color: var(--text-color);
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-shadow: 0 0 5px var(--glow-color-secondary);
+}
+
+.btn:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px var(--glow-color-secondary);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+.operator {
+    color: var(--secondary-color);
+}
+
+.equals {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+    text-shadow: none;
+    border-color: var(--primary-color);
+}
+
+.equals:hover {
+    background-color: #ff33ff;
+    box-shadow: 0 0 15px var(--glow-color);
+}
